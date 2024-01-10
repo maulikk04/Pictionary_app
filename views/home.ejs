@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="home.css">
+    <title>Pictionary App</title>
+</head>
+
+<body>
+    <div>
+        <div>
+            <h1>Pictionary App</h1>
+        </div>
+        <div class="container">
+            <div class="box" id="createRoomBox">
+                <h2>Create Room</h2>
+                <label for="createUsername">Username:</label>
+                <input type="text" id="createUsername" placeholder="Enter your username">
+
+                <li><a href="/draw">Create Room</a></li>
+            </div>
+
+            <div class="box" id="joinRoomBox">
+                <h2>Join Room</h2>
+                <label for="joinUsername">Username:</label>
+                <input type="text" id="joinUsername" placeholder="Enter your username">
+
+                <label for="roomID">Room ID:</label>
+                <input type="text" id="roomID" placeholder="Enter the room ID">
+
+                <li><a href="/draw">Join Room</a></li>
+            </div>
+        </div>
+    </div>
+
+    <!-- <script>
+    function createRoom() {
+        // Add logic to handle creating a room
+        alert('Creating room...');
+    }
+
+    function joinRoom() {
+        // Add logic to handle joining a room
+        alert('Joining room...');
+    }
+</script> -->
+
+</body>
+
+</html>
