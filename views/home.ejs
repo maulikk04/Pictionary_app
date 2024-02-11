@@ -17,35 +17,56 @@
             <div class="box" id="createRoomBox">
                 <h2>Create Room</h2>
                 <label for="createUsername">Username:</label>
-                <input type="text" id="createUsername" placeholder="Enter your username">
-
-                <li><a href="/draw">Create Room</a></li>
+                <input type="text" id="username" placeholder="Enter your username">
+                <button id="createroom">Create Room</button>
             </div>
 
             <div class="box" id="joinRoomBox">
                 <h2>Join Room</h2>
                 <label for="joinUsername">Username:</label>
-                <input type="text" id="joinUsername" placeholder="Enter your username">
+                <input type="text" id="Username" placeholder="Enter your username">
 
                 <label for="roomID">Room ID:</label>
                 <input type="text" id="roomID" placeholder="Enter the room ID">
-
-                <li><a href="/draw">Join Room</a></li>
+                <button onclick="joinRoom()">Join Room</button>
             </div>
         </div>
     </div>
+    <script src="/socket.io/socket.io.js"></script>
+    <script>
+        var socket = io();
+        var createroom_button = document.getElementById('createroom');
+        socket.on('username', function (username) {
+            console.log(username);
+            window.location.href = "/draw";
+        });
+        createroom_button.addEventListener('click', (e) => {
+            e.preventDefault();
+            var username = document.getElementById('username').value;
+            if (username) {
+               socket.emit('username', username);
+            }
+            else {
+                alert("Enter Username");
+            }
+        })
 
-    <!-- <script>
-    function createRoom() {
-        // Add logic to handle creating a room
-        alert('Creating room...');
-    }
-
-    function joinRoom() {
-        // Add logic to handle joining a room
-        alert('Joining room...');
-    }
-</script> -->
+    </script>
+    <script>
+        function joinRoom() {
+            var username = document.getElementById('Username').value;
+            var roomid = document.getElementById('roomID').value;
+            if (username && roomid) {
+                window.location.href = "/draw"
+            }
+            else if (!username) {
+                alert("Enter username");
+            }
+            else {
+                alert("Enter room id");
+            }
+        }
+    </script>
 
 </body>
 
