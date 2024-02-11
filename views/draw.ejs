@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Drawing-Board</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/drawingboard.js/0.4.2/drawingboard.min.js" ></script>
+
+<body>
+    <div id="left">
+        <div id="user-list">
+            <ul>
+                <li><%=username %></li>
+                <li>user0</li>
+                <li>user1</li> 
+            </ul>
+        </div>
+        <div id="room-controls">
+                <p id="roomid">Roomid: 123</p>
+                <button id="start-btn">Start</button>
+                <button id="leave-btn">Leave</button>
+            </div>
+        </div>
+    </div>
+    <div id="middle">
+        <textarea id="text-box" rows="3" cols="20"></textarea>
+        <div id="canvas-container"></div>
+    </div>
+    <div id="right">
+        <div id="chat-box"></div>
+        <input type="text" id="chat-input">
+        <button id="send-btn">Send</button>
+    </div>
+</body>
+<script>
+    var customBoard = new DrawingBoard.Board('canvas-container', {
+        size: 30,
+        color:'#ff0',
+        controls: [
+            'Color',
+            { Size: { type: "range" } },
+            { Navigation: { back: false, forward: false } },
+            'DrawingMode'
+        ],
+        webStorage: 'local'
+    });
+
+</script>
+</html>
